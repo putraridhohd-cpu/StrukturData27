@@ -1,11 +1,27 @@
 package Jobsheet1;
 
 public class Mahasiswa27 {
+
+    // ✅ Atribut (harus di luar konstruktor)
     String nama;
     String NIM;
     String kelas;
     double ipk;
 
+    // ✅ Konstruktor Default
+    public Mahasiswa27() {
+
+    }
+
+    // ✅ Konstruktor Berparameter
+    public Mahasiswa27(String nm, String nim, String kls, double ipk) {
+        this.nama = nm;
+        this.NIM = nim;
+        this.kelas = kls;
+        this.ipk = ipk;
+    }
+
+    // ✅ Method
     void TampilkanInformasi() {
         System.out.println("Nama : " + nama);
         System.out.println("NIM : " + NIM);

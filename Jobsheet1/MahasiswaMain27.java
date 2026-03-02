@@ -13,6 +13,10 @@ public class MahasiswaMain27 {
     mhs1.updateIpk(3.0);
     mhs1.TampilkanInformasi();
 
+    Mahasiswa27 mhs2 = new Mahasiswa27("Rifki maulana", "234526162", "TI 1-H", 3.5);
+    mhs2.updateIpk(2.90);
+    mhs2.TampilkanInformasi();
+
 
     }
    
