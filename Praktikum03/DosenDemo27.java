@@ -18,26 +18,25 @@ public class DosenDemo27 {
             String nama = sc.nextLine();
             System.out.print("Jenis Kelamin (P/W) : ");
             char jkChar = sc.nextLine().toUpperCase().charAt(0);
-            boolean jk = (jkChar == 'P'); // Konversi P jadi true, selain itu false
+            boolean jk = (jkChar == 'P');
             System.out.print("Usia          : ");
             int usia = Integer.parseInt(sc.nextLine());
             System.out.println("-------------------------------------");
 
-            // Instansiasi objek langsung melalui konstruktor
             arrayOfDosen[i] = new Dosen27(kode, nama, jk, usia);
         }
 
-        // 2. Looping FOREACH untuk Menampilkan Data
-        System.out.println("\n===== DAFTAR DOSEN =====");
-        int no = 1;
-        for (Dosen27 dosen : arrayOfDosen) {
-            System.out.println("Data Dosen ke-" + no++);
-            System.out.println("Kode          : " + dosen.kode);
-            System.out.println("Nama          : " + dosen.nama);
-            System.out.println("Jenis Kelamin : " + (dosen.jenisKelamin ? "Pria" : "Wanita"));
-            System.out.println("Usia          : " + dosen.usia);
-            System.out.println("-------------------------------------");
-        }
-        sc.close();
+        // 2. Memanggil Method dari Utility Class DataDosen27
+        // (Kita tidak perlu loop manual lagi di sini karena sudah dihandle oleh method ini)
+        DataDosen27.dataSemuaDosen(arrayOfDosen);
+        
+        System.out.println("\n===== ANALISIS DATA DOSEN =====");
+        DataDosen27.jumlahDosenPerJenisKelamin(arrayOfDosen);
+        DataDosen27.rerataUsiaDosenPerJenisKelamin(arrayOfDosen);
+        DataDosen27.infoDosenPalingTua(arrayOfDosen);
+        DataDosen27.infoDosenPalingMuda(arrayOfDosen);
+        System.out.println("-------------------------------------");
+
+        sc.close(); 
     }
 }
