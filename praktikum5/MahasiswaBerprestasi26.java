@@ -4,6 +4,7 @@ public class MahasiswaBerprestasi26 {
     Mahasiswa26 [] listMhs = new Mahasiswa26[5];
     int idx;
 
+    // Method untuk menambah objek mahasiswa
     void tambah(Mahasiswa26 m) {
         if (idx < listMhs.length) {
             listMhs[idx] = m;
@@ -13,17 +14,20 @@ public class MahasiswaBerprestasi26 {
         }
     }
 
+    // Method untuk menampilkan semua data
     void tampil() {
         for (Mahasiswa26 m : listMhs) {
-            m.tampilInformasi();
-            System.out.println("-------------------------");
+            if (m != null) {
+                m.tampilInformasi();
+                System.out.println("-------------------------");
+            }
         }
     }
 
+    // Praktikum 2: Bubble Sort (Descending - IPK Terbesar ke Terkecil)
     void bubbleSort() {
         for (int i = 0; i < listMhs.length - 1; i++) {
             for (int j = 1; j < listMhs.length - i; j++) {
-                // Mengurutkan berdasarkan IPK secara Descending (terbesar ke terkecil)
                 if (listMhs[j].ipk > listMhs[j - 1].ipk) {
                     Mahasiswa26 tmp = listMhs[j];
                     listMhs[j] = listMhs[j - 1];
@@ -32,21 +36,45 @@ public class MahasiswaBerprestasi26 {
             }
         }
     }
-    // ... method sebelumnya (tambah, tampil, bubbleSort) ...
 
+    // Praktikum 3: Selection Sort (Ascending - IPK Terkecil ke Terbesar)
     void selectionSort() {
         for (int i = 0; i < listMhs.length - 1; i++) {
             int idxMin = i;
             for (int j = i + 1; j < listMhs.length; j++) {
-                // Perbandingan < untuk mencari nilai terkecil (Ascending)
                 if (listMhs[j].ipk < listMhs[idxMin].ipk) {
                     idxMin = j;
                 }
             }
-            // Swap objek mahasiswa
             Mahasiswa26 tmp = listMhs[idxMin];
             listMhs[idxMin] = listMhs[i];
             listMhs[i] = tmp;
+        }
+    }
+
+    // Praktikum 4: Insertion Sort (Ascending - IPK Terkecil ke Terbesar)
+    void insertionSort() {
+        for (int i = 1; i < listMhs.length; i++) {
+            Mahasiswa26 temp = listMhs[i];
+            int j = i;
+            while (j > 0 && listMhs[j - 1].ipk > temp.ipk) {
+                listMhs[j] = listMhs[j - 1];
+                j--;
+            }
+            listMhs[j] = temp;
+        }
+    }
+    void insertionSortDescending() {
+        for (int i = 1; i < listMhs.length; i++) {
+            Mahasiswa26 temp = listMhs[i];
+            int j = i;
+            
+            // Ubah tanda '>' menjadi '<' untuk mengurutkan secara Descending
+            while (j > 0 && listMhs[j - 1].ipk < temp.ipk) {
+                listMhs[j] = listMhs[j - 1];
+                j--;
+            }
+            listMhs[j] = temp;
         }
     }
 }
