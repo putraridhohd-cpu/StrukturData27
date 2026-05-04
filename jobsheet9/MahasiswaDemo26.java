@@ -1,27 +1,23 @@
 package jobsheet9;
-
 import java.util.Scanner;
 
-// Bagian C: Class Utama
 public class MahasiswaDemo26 {
-    public static void main(String[] args) {
-        // Nomor 16: Instansiasi objek Stack dengan kapasitas 5
+        public static void main(String[] args) {
         StackTugasMahasiswa26 stack = new StackTugasMahasiswa26(5);
-        
-        // Nomor 17: Deklarasi Scanner dan variabel pilih
         Scanner scan = new Scanner(System.in);
         int pilih;
 
-        // Nomor 18: Menu operasi Stack menggunakan perulangan do-while
         do {
             System.out.println("\nMenu:");
             System.out.println("1. Mengumpulkan Tugas");
             System.out.println("2. Menilai Tugas");
             System.out.println("3. Melihat Tugas Teratas");
             System.out.println("4. Melihat Daftar Tugas");
+            System.out.println("5. Melihat Tugas Terbawah");
+            System.out.println("6. Menghitung Jumlah Tugas");
             System.out.print("Pilih: ");
             pilih = scan.nextInt();
-            scan.nextLine(); // Membersihkan buffer
+            scan.nextLine(); 
 
             switch (pilih) {
                 case 1:
@@ -60,12 +56,23 @@ public class MahasiswaDemo26 {
                     System.out.println("Nama\tNIM\tKelas");
                     stack.print();
                     break;
+                    
+                case 5: 
+                    Mahasiswa26 bawah = stack.peekBottom();
+                    if (bawah != null) {
+                        System.out.println("Mahasiswa yang pertama kali mengumpulkan: " + bawah.nama);
+                    }
+                    break;
+
+                case 6: 
+                    System.out.println("Jumlah tugas yang sudah dikumpulkan saat ini: " + stack.count());
+                    break;
 
                 default:
-                    System.out.println("Pilihan tidak valid.");
+                    if (pilih != 0) { // Anggap saja 0 untuk keluar atau biarkan validasi menu
+                        System.out.println("Pilihan tidak valid.");
+                    }
             }
-        } while (pilih >= 1 && pilih <= 4);
-        
-    
-    }
-}
+        } while (pilih >= 1 && pilih <= 6); 
+    } 
+} 

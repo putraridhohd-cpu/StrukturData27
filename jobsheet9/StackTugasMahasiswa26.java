@@ -71,4 +71,19 @@ public class StackTugasMahasiswa26 {
         }
         System.out.println("");
     }
+
+    // Tambahan untuk nomor 4: Melihat tugas terbawah (yang pertama dikumpulkan)
+    public Mahasiswa26 peekBottom() {
+        if (!isEmpty()) {
+        return stack[0]; // Indeks 0 adalah data yang paling pertama masuk
+        } else {
+        System.out.println("Stack kosong!");
+        return null;
+    }
+}
+
+// Tambahan untuk nomor 5: Menghitung jumlah tugas saat ini
+    public int count() {
+       return top + 1; // Karena top dimulai dari -1, maka jumlah data adalah top + 1
+}
 }
