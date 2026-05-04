@@ -1,38 +1,40 @@
 package jobsheet9;
 
-// Bagian B: Class StackTugasMahasiswa
 public class StackTugasMahasiswa26 {
-    // Nomor 6: Atribut stack, top, dan size
     Mahasiswa26[] stack;
     int top;
     int size;
 
-    // Nomor 7: Konstruktor untuk inisialisasi kapasitas (size) dan index top
     public StackTugasMahasiswa26(int size) {
         this.size = size;
         stack = new Mahasiswa26[size];
         top = -1;
     }
 
-    // Nomor 8: Method untuk mengecek apakah stack penuh
+    // Nomor 2: Method baru untuk konversi Desimal ke Biner
+    public String konversiDesimalKeBiner(int nilai) {
+        StackKonversi26 stackKonv = new StackKonversi26();
+        while (nilai > 0) {
+            int sisa = nilai % 2;
+            stackKonv.push(sisa);
+            nilai = nilai / 2;
+        }
+        
+        String biner = "";
+        while (!stackKonv.isEmpty()) {
+            biner += stackKonv.pop();
+        }
+        return biner;
+    }
+
     public boolean isFull() {
-        if (top == size - 1) {
-            return true;
-        } else {
-            return false;
-        }
+        return top == size - 1;
     }
 
-    // Nomor 9: Method untuk mengecek apakah stack kosong
     public boolean isEmpty() {
-        if (top == -1) {
-            return true;
-        } else {
-            return false;
-        }
+        return top == -1;
     }
 
-    // Nomor 10: Method push untuk menambah tugas ke stack
     public void push(Mahasiswa26 mhs) {
         if (!isFull()) {
             top++;
@@ -42,7 +44,6 @@ public class StackTugasMahasiswa26 {
         }
     }
 
-    // Nomor 11: Method pop untuk mengambil tugas yang akan dinilai
     public Mahasiswa26 pop() {
         if (!isEmpty()) {
             Mahasiswa26 m = stack[top];
@@ -54,36 +55,34 @@ public class StackTugasMahasiswa26 {
         }
     }
 
-    // Nomor 12: Method peek untuk melihat tugas paling atas
     public Mahasiswa26 peek() {
         if (!isEmpty()) {
             return stack[top];
         } else {
-            System.out.println("Stack kosong! Tidak ada tugas yang dikumpulkan.");
+            System.out.println("Stack kosong!");
             return null;
         }
     }
 
-    // Nomor 13: Method print untuk menampilkan semua daftar tugas di stack
+    // Method modifikasi sebelumnya: Lihat terbawah
+    public Mahasiswa26 peekBottom() {
+        if (!isEmpty()) {
+            return stack[0];
+        } else {
+            return null;
+        }
+    }
+
+    // Method modifikasi sebelumnya: Hitung jumlah
+    public int count() {
+        return top + 1;
+    }
+
     public void print() {
-        for (int i = 0; i <= top; i++) {
+        // Perbaikan nomor 1: Print dari atas ke bawah (LIFO)
+        for (int i = top; i >= 0; i--) {
             System.out.println(stack[i].nama + "\t" + stack[i].nim + "\t" + stack[i].kelas);
         }
         System.out.println("");
     }
-
-    // Tambahan untuk nomor 4: Melihat tugas terbawah (yang pertama dikumpulkan)
-    public Mahasiswa26 peekBottom() {
-        if (!isEmpty()) {
-        return stack[0]; // Indeks 0 adalah data yang paling pertama masuk
-        } else {
-        System.out.println("Stack kosong!");
-        return null;
-    }
-}
-
-// Tambahan untuk nomor 5: Menghitung jumlah tugas saat ini
-    public int count() {
-       return top + 1; // Karena top dimulai dari -1, maka jumlah data adalah top + 1
-}
 }

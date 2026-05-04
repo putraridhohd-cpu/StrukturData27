@@ -2,7 +2,7 @@ package jobsheet9;
 import java.util.Scanner;
 
 public class MahasiswaDemo26 {
-        public static void main(String[] args) {
+    public static void main(String[] args) {
         StackTugasMahasiswa26 stack = new StackTugasMahasiswa26(5);
         Scanner scan = new Scanner(System.in);
         int pilih;
@@ -27,13 +27,13 @@ public class MahasiswaDemo26 {
                     String nim = scan.nextLine();
                     System.out.print("Kelas: ");
                     String kelas = scan.nextLine();
-                    
                     Mahasiswa26 mhs = new Mahasiswa26(nama, nim, kelas);
                     stack.push(mhs);
                     System.out.printf("Tugas %s berhasil dikumpulkan\n", mhs.nama);
                     break;
 
                 case 2:
+                    // Nomor 4: Update pada proses penilaian
                     Mahasiswa26 dinilai = stack.pop();
                     if (dinilai != null) {
                         System.out.println("Menilai tugas dari " + dinilai.nama);
@@ -41,6 +41,10 @@ public class MahasiswaDemo26 {
                         int nilai = scan.nextInt();
                         dinilai.tugasDinilai(nilai);
                         System.out.printf("Nilai Tugas %s adalah %d\n", dinilai.nama, nilai);
+                        
+                        // Bagian modifikasi biner
+                        String biner = stack.konversiDesimalKeBiner(nilai);
+                        System.out.println("Nilai Biner Tugas: " + biner);
                     }
                     break;
 
@@ -69,10 +73,8 @@ public class MahasiswaDemo26 {
                     break;
 
                 default:
-                    if (pilih != 0) { // Anggap saja 0 untuk keluar atau biarkan validasi menu
-                        System.out.println("Pilihan tidak valid.");
-                    }
+                    if (pilih != 0) System.out.println("Pilihan tidak valid.");
             }
         } while (pilih >= 1 && pilih <= 6); 
-    } 
-} 
+    }
+}
