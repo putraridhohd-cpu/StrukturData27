@@ -66,6 +66,6 @@ public class MahasiswaDemo26 {
             }
         } while (pilih >= 1 && pilih <= 4);
         
-        // Nomor 19 & 20: Jangan lupa commit ke Github, compile, dan jalankan program!
+    
     }
 }
