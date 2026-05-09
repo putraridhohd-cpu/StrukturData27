@@ -83,4 +83,17 @@ public class AntrianLayanan26 {
     public int getJumlahAntrian() {
         return size;
     }
+
+      // Method baru untuk mengecek antrian yang berada di posisi paling belakang
+    public void lihatAkhir() {
+        if (isEmpty()) {
+           System.out.println("Antrian kosong.");
+        } else {
+        System.out.println("Mahasiswa paling belakang: ");
+        System.out.println("NIM - NAMA - PRODI - KELAS");
+        // Mengambil data pada posisi rear dan memanggil method tampilkanData
+        data[rear].tampilkanData();
+    }
+}
+
 }
