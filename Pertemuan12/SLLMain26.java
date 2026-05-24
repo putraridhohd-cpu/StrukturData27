@@ -1,23 +1,32 @@
 package Pertemuan12;
+import java.util.Scanner; // Import Scanner untuk input keyboard
 
 public class SLLMain26 {
     public static void main(String[] args) {
         SingleLinkedList26 sll = new SingleLinkedList26();
+        Scanner sc = new Scanner(System.in);
 
-        // Membuat objek mahasiswa
-        Mahasiswa26 mhs1 = new Mahasiswa26("111", "Anton", "1A", 3.5);
-        Mahasiswa26 mhs2 = new Mahasiswa26("222", "Budi", "1B", 3.0);
-        Mahasiswa26 mhs3 = new Mahasiswa26("333", "Dirga", "1C", 3.8);
-        Mahasiswa26 mhs4 = new Mahasiswa26("444", "Eka", "1D", 3.2);
+        // Contoh: Meminta input untuk menambahkan data ke awal (addFirst)
+        System.out.println("Masukkan data mahasiswa untuk ditambahkan ke awal:");
+        System.out.print("NIM: ");
+        String nim = sc.nextLine();
+        System.out.print("Nama: ");
+        String nama = sc.nextLine();
+        System.out.print("Kelas: ");
+        String kelas = sc.nextLine();
+        System.out.print("IPK: ");
+        double ipk = sc.nextDouble();
+        sc.nextLine(); // Membersihkan buffer setelah nextDouble()
 
-        // Uji coba metode
+        // Membuat objek dari input keyboard
+        Mahasiswa26 mhsInput = new Mahasiswa26(nim, nama, kelas, ipk);
+        
+        // Menambahkan ke list
+        sll.addFirst(mhsInput);
+        
+        // Cetak hasil
         sll.print();
-        sll.addFirst(mhs4);
-        sll.print();
-        sll.addLast(mhs1);
-        sll.print();
-        sll.insertAfter("Dirga", mhs3);
-        sll.insertAt(2, mhs2);
-        sll.print();
+
+        sc.close(); 
     }
 }
