@@ -1,22 +1,18 @@
 package Jobsheet12;
 
 public class DoubleLinkedList26 {
-    // No. 5: Deklarasi atribut head dan tail
     Node26 head;
     Node26 tail;
 
-    // No. 6: Konstruktor DoubleLinkedList
     public DoubleLinkedList26() {
         head = null;
         tail = null;
     }
 
-    // No. 7: Method isEmpty()
     public boolean isEmpty() {
         return head == null;
     }
 
-    // No. 8: Method addFirst()
     public void addFirst(Mahasiswa26 data) {
         Node26 newNode = new Node26(data);
         if (isEmpty()) {
@@ -28,7 +24,6 @@ public class DoubleLinkedList26 {
         }
     }
 
-    // No. 9: Method addLast()
     public void addLast(Mahasiswa26 data) {
         Node26 newNode = new Node26(data);
         if (isEmpty()) {
@@ -40,7 +35,6 @@ public class DoubleLinkedList26 {
         }
     }
 
-    // No. 10: Method insertAfter()
     public void insertAfter(String keyNim, Mahasiswa26 data) {
         Node26 current = head;
         while (current != null && !current.data.nim.equals(keyNim)) {
@@ -53,12 +47,11 @@ public class DoubleLinkedList26 {
 
         Node26 newNode = new Node26(data);
 
-        // Jika current adalah tail, node baru ditambahkan di akhir
         if (current == tail) {
             newNode.prev = current;
             current.next = newNode;
             tail = newNode;
-        } else { // Node baru disisipkan di tengah
+        } else {
             newNode.prev = current;
             newNode.next = current.next;
             current.next.prev = newNode;
@@ -67,7 +60,7 @@ public class DoubleLinkedList26 {
         System.out.println("Data berhasil disisipkan setelah NIM " + keyNim);
     }
 
-    // No. 11: Method print() untuk traversal dari head ke tail
+    // No. 5: Memastikan menampilkan pesan ketika linked list masih kosong
     public void print() {
         if (isEmpty()) {
             System.out.println("Linked List masih kosong.");
@@ -77,12 +70,26 @@ public class DoubleLinkedList26 {
         Node26 current = head;
         while (current != null) {
             current.data.tampil();
-            System.out.println("-------------------------"); // Pembatas biar rapi saat diprint
+            System.out.println("-------------------------");
             current = current.next;
         }
     }
 
-    // Tambahan: Method removeFirst() dan removeLast() untuk mendukung Case 4 dan Case 5 di Main
+    // No. 6: Menambahkan method printReverse() untuk cetak data terbalik dari tail ke head
+    public void printReverse() {
+        if (isEmpty()) {
+            System.out.println("Linked List masih kosong.");
+            return;
+        }
+
+        Node26 current = tail;
+        while (current != null) {
+            current.data.tampil();
+            System.out.println("-------------------------");
+            current = current.prev; // Berjalan mundur memanfaatkan pointer prev
+        }
+    }
+
     public void removeFirst() {
         if (isEmpty()) {
             System.out.println("Linked List masih kosong, tidak ada yang bisa dihapus.");
