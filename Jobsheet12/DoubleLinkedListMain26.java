@@ -37,7 +37,7 @@ public class DoubleLinkedListMain26 {
                     System.out.print("Masukkan NIM yang dicari : ");
                     String keyNim = scan.nextLine();
                     System.out.println("Masukkan data baru: ");
-                    Mahasiswa26 dataBaru = inputMahasiswa(scan);
+                    Mahasiswa26 dataBaru = inputMahasiswa(scan);    
                     list.insertAfter(keyNim, dataBaru);
                     break;
                 case 4:

@@ -35,15 +35,16 @@ public class DoubleLinkedList26 {
         }
     }
 
-    // --- PERCOBAAN 2: OPERASI PENGHAPUSAN ---
-
-    // 1. Method removeFirst()
+    // Modifikasi removeFirst: Menampilkan data yang dihapus
     public void removeFirst() {
         if (isEmpty()) {
-            System.out.println("Linked List kosong.");
+            System.out.println("Linked List masih kosong.");
             return;
         }
         
+        System.out.println("Data yang dihapus: ");
+        head.data.tampil(); // Menampilkan data sebelum dihapus
+
         if (head == tail) {
             head = tail = null;
         } else {
@@ -52,13 +53,16 @@ public class DoubleLinkedList26 {
         }
     }
 
-    // 2. Method removeLast()
+    // Modifikasi removeLast: Menampilkan data yang dihapus
     public void removeLast() {
         if (isEmpty()) {
-            System.out.println("Linked List kosong.");
+            System.out.println("Linked List masih kosong.");
             return;
         }
         
+        System.out.println("Data yang dihapus: ");
+        tail.data.tampil(); // Menampilkan data sebelum dihapus
+
         if (head == tail) {
             head = tail = null;
         } else {
@@ -66,8 +70,6 @@ public class DoubleLinkedList26 {
             tail.next = null;
         }
     }
-
-    // ----------------------------------------
 
     public void insertAfter(String keyNim, Mahasiswa26 data) {
         Node26 current = head;
